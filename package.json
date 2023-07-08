@@ -4,7 +4,7 @@
   "description": "Backend for the Publifyer Hackathon Challenge",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/kokoaespol/Hackathon_Publyfier#readme",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "openai": "^3.3.0"
