@@ -11,6 +11,8 @@ export default {
       'color3G': '#8CFFC9',
       'color4O': '#ff8573',
       'color5P': '#C280FF',
+      'white': '#fff',
+      'black': '#000'
     },
     extend: {},
   },
