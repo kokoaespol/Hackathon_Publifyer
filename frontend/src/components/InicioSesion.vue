@@ -1,3 +1,3 @@
 <template setup>
-    <hi>Soy registro</hi>
+    <hi>Soy sesion</hi>
 </template>

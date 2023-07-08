@@ -14,7 +14,7 @@ export default function router() {
       { path: "/new", component: NewGenie },
       { path: "/acerca", component: Acerca },
       { path: "/guide", component: ContentGuide },
-      { path: "/Video", component: ContentVideo },
+      { path: "/video", component: ContentVideo },
     ],
   });
 }
