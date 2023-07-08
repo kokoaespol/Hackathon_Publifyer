@@ -1,5 +1,12 @@
-<script setup></script>
+<script setup>
+
+
+</script>
 
 <template>
-    <router-view></router-view>
+    <Suspense>
+        <div class="w-screen h-screen">
+            <router-view></router-view>
+        </div>
+    </Suspense>
 </template>
