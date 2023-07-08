@@ -4,6 +4,7 @@ import LandingPage from "./components/LandingPage.vue";
 import NewGenie from "./components/NewGenie.vue";
 import Acerca from "./components/Acerca.vue";
 import ContentGuide from "./components/ContentGuide.vue";
+import ContentVideo from "./components/Video2Genie.vue";
 
 export default function router() {
   return createRouter({
@@ -13,6 +14,7 @@ export default function router() {
       { path: "/new", component: NewGenie },
       { path: "/acerca", component: Acerca },
       { path: "/guide", component: ContentGuide },
+      { path: "/Video", component: ContentVideo },
     ],
   });
 }
