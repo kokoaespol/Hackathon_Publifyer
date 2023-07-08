@@ -1,6 +1,8 @@
 <script setup>
 import { inject } from "vue"
 
+import Step from "./Step.vue"
+
 const videoService = inject("services.video");
 
 const video = await videoService.getScript();
@@ -10,6 +12,7 @@ const data = Object.entries(video);
 <template>
     <section class="w-full h-full">
         <h1 class="mx-4 my-6">Aquí un par de sugerencias antes de crear tu contenido</h1>
+        <Step />
         <div class="w-2/3 px-10 py-5 m-auto rounded-lg">
             <div class="grid grid-cols-[50%_50%] gap-2">
                 <h2 class="my-3 text-center text-2xl mt-16">Ambiente</h2>
