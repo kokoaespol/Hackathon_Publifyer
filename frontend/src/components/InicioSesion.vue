@@ -2,6 +2,5 @@
 </script>
 
 <template>
-    
-    <h1>Soy registro</h1>
+    <i class="fa-solid fa-user"></i>
 </template>
