@@ -1,6 +1,7 @@
 <script setup>
 import { inject } from "vue"
 import CustomInput from "./CustomInput.vue"
+import CustomButton from "./CustomButton.vue";
 
 
 const genieService = inject("services.genie");
@@ -14,7 +15,7 @@ const name = 'Alina'
 
         <!-- Title -->
         <div>
-            <h1>{{ name + ", que quieres publicar hoy?" }}</h1>
+            <h1 class="text-2xl">{{ name + ", que quieres publicar hoy?" }}</h1>
         </div>
         <!-- Breadcrumbs -->
 
@@ -32,6 +33,10 @@ const name = 'Alina'
             </div>
             <CustomInput label="Publico" placeholder="Ninos, jovenes, amas de casa, publico general..." />
             <CustomInput label="Palabras clave" placeholder="pilsener, promocion, cerveza..." />
+            <!-- Footer -->
+            <div class="flex justify-end">
+                <CustomButton label="Generar Sugerencias" icon="" :action="(p) = {}" />
+            </div>
         </div>
     </section>
 </template>

@@ -3,9 +3,6 @@ export default {
   props: {
     label: String,
     placeholder: String,
-  },
-  setup(props) {
-    console.log(props.title)
   }
 }
 </script>
