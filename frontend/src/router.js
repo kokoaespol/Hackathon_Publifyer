@@ -11,6 +11,8 @@ export default function router() {
     routes: [
       { path: "/", component: LandingPage, },
       { path: "/new", component: NewGenie, },
+      { path: "/acerca", component: Acerca, },
+      { path: "/guide", component: ContentGuide, },
     ],
   });
 }
