@@ -28,6 +28,8 @@ const {
   authController,
 } = require("./controller/authController");
 
+const FirebaseGenieService = require("./services/firebaseGenieService");
+
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
@@ -43,7 +45,11 @@ app.use(
 app.use(
   "/api/v1/genies",
   authMiddleware(authService),
-  genieController(openAIService),
+  genieController(
+    openAIService,
+    new FirebaseGenieService(firebaseApp),
+    authService,
+  ),
 );
 
 app.use(

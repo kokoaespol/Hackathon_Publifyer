@@ -73,6 +73,28 @@ Created 201
 }
 ```
 
+Get all Genies
+```
+GET /api/v1/genies
+```
+Response
+```
+Ok 200
+[
+    {
+        "id": string,
+        "meta": {
+            "brand": string,
+            "subject": string,
+            "idea": string,
+            "targetAudience": string,
+            "keywords": list<string>,
+            "durationInSeconds": int
+        }
+    }
+]
+```
+
 ### Transcriptions
 
 Pedir una nueva transcripción:
