@@ -56,6 +56,14 @@ class OpenAIService {
     });
     return completion.data.choices[0].message.content;
   }
+
+  async transcribeVideo(videoFile) {
+    const transcription = await this.#openai.createTranscription(
+      videoFile,
+      "whisper-1",
+    );
+    return transcription;
+  }
 }
 
 module.exports = OpenAIService;

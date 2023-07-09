@@ -8,8 +8,8 @@ function openAIController(openAIService) {
     const videoMeta = new VideoMeta(req.body);
     const guion = await openAIService.generateVideoScript(videoMeta);
     const ambiente = await openAIService.recommendAmbience(videoMeta);
-    return res.json({
-      status: "200",
+    return res.status(201).json({
+      status: 201,
       ambiente,
       guion,
     });

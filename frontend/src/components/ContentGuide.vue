@@ -2,6 +2,7 @@
 import { inject } from "vue"
 
 import Step from "./Step.vue"
+import CustomButton from "./CustomButton.vue";
 
 const videoService = inject("services.video");
 
@@ -24,6 +25,11 @@ const data = Object.entries(video);
                 </div>
                 <h2 class="my-3 text-center text-2xl mt-20">Guión</h2>
             </div>
+        </div>
+        <div class="w-32 ml-auto mr-10">
+            <router-link to="/suggestions">
+                <CustomButton label="Siguiente"/>
+            </router-link>
         </div>
     </section>
 </template>
