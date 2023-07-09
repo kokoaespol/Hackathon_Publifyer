@@ -9,7 +9,6 @@ const router = useRouter()
 const signUp = () => {
     router.push("/")
 }
-
 </script>
 
 <template>
