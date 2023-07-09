@@ -30,10 +30,10 @@ const keywords = ref("");
 </script>
 
 <template>
-    <section class="relative w-full h-full p-10 bg-opacity-30 bg-color3G">
+    <section class="relative w-full h-full p-10">
         <!-- Navbar -->
         <NavBar color="color1F" />
-        <div class="w-4/6 m-auto">
+        <div class="w-4/6 m-auto mt-10">
 
 
             <!-- Title -->
