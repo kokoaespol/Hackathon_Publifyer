@@ -1,4 +1,3 @@
-<!-- component for custom component with prop label, icon and action (a function) -->
 <script>
 export default {
     props: {
