@@ -7,6 +7,12 @@ const Genie = require("../models/genie");
 function genieController(openAIService, genieService, authService) {
   const router = express.Router();
 
+  router.get("/", async (req, res) => {
+    const user = await authService.getUser();
+    const genies = await genieService.getGeniesForUser(user.uid);
+    return res.status(200).json(genies);
+  });
+
   router.post("/new", async (req, res) => {
     const videoMeta = new VideoMeta(req.body);
 

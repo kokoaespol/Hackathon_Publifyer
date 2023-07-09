@@ -1,4 +1,10 @@
-const { getFirestore, doc, setDoc } = require("firebase/firestore");
+const {
+  getFirestore,
+  doc,
+  setDoc,
+  collection,
+  getDocs,
+} = require("firebase/firestore");
 
 const genieConverter = require("../converters/genie");
 
@@ -20,6 +26,19 @@ class FirebaseGenieService {
       genie.id,
     ).withConverter(genieConverter);
     await setDoc(docRef, genie);
+  }
+
+  async getGeniesForUser(userId) {
+    const collRef = collection(
+      this.#db,
+      "users",
+      userId,
+      "genies",
+    ).withConverter(genieConverter);
+    const querySnapshot = await getDocs(collRef);
+    const genies = [];
+    querySnapshot.forEach((doc) => genies.push(doc.data()));
+    return genies;
   }
 }
 
