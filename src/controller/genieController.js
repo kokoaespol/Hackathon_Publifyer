@@ -8,7 +8,7 @@ function genieController(openAIService, genieService, authService) {
   const router = express.Router();
 
   router.get("/", async (req, res) => {
-    const user = await authService.getUser();
+    const user = res.locals.user;
     const genies = await genieService.getGeniesForUser(user.uid);
     return res.status(200).json(genies);
   });
@@ -22,7 +22,7 @@ function genieController(openAIService, genieService, authService) {
     const genieId = crypto.randomBytes(16).toString("hex");
     const genie = new Genie({ id: genieId, meta: videoMeta });
 
-    const user = await authService.getUser();
+    const user = res.locals.user;
 
     await genieService.createGenie(genie, user.uid);
 

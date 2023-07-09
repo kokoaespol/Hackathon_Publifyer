@@ -1,5 +1,5 @@
 const { getAuth, signInWithEmailAndPassword } = require("firebase/auth");
-const { getFirestore, getDoc, doc } = require("firebase/firestore");
+const { getFirestore, getDoc, doc, setDoc } = require("firebase/firestore");
 
 const userConverter = require("../converters/user");
 
@@ -14,19 +14,24 @@ class FirebaseAuthService {
     this.#db = getFirestore(this.#db);
   }
 
-  async logIn(email, password) {
-    await signInWithEmailAndPassword(this.#auth, email, password);
+  async logIn(email, password, authToken) {
+    const userCreds = await signInWithEmailAndPassword(
+      this.#auth,
+      email,
+      password,
+    );
+    const tokenDocRef = doc(this.#db, "tokens", authToken);
+    await setDoc(tokenDocRef, { uid: userCreds.user.uid });
   }
 
-  async getUser() {
-    const user = this.#auth.currentUser;
-    if (!user) {
-      return null;
-    }
+  // TODO: Expire cookies.
+  async getUser(authToken) {
+    const tokenDocRef = doc(this.#db, "tokens", authToken);
+    const tokenSnapshot = await getDoc(tokenDocRef);
 
-    const docRef = doc(this.#db, "users", user.uid).withConverter(
-      userConverter,
-    );
+    const userId = tokenSnapshot.data().uid;
+
+    const docRef = doc(this.#db, "users", userId).withConverter(userConverter);
     const snapshot = await getDoc(docRef);
 
     return snapshot.data();

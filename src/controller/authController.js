@@ -1,3 +1,4 @@
+const crypto = require("crypto");
 const express = require("express");
 
 function authController(authService) {
@@ -5,9 +6,10 @@ function authController(authService) {
 
   router.post("/login", async (req, res) => {
     const { email, password } = req.body;
-    await authService.logIn(email, password);
-    const user = await authService.getUser();
-    res.json(user);
+    const cookie = crypto.randomBytes(16).toString("hex");
+    await authService.logIn(email, password, cookie);
+    const user = await authService.getUser(cookie);
+    res.cookie("GENIE_SESSION", cookie).json(user);
   });
 
   return router;
@@ -15,14 +17,18 @@ function authController(authService) {
 
 function authMiddleware(authService) {
   return async (req, res, next) => {
-    const user = await authService.getUser();
+    if (!req.cookies || !req.cookies.GENIE_SESSION) {
+      return res.status(401).end();
+    }
+
+    const user = await authService.getUser(req.cookies.GENIE_SESSION);
 
     if (!user) {
       return res.status(401).end();
     }
 
     res.locals.user = user;
-    next();
+    return next();
   };
 }
 
