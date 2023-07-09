@@ -13,8 +13,8 @@ const signUp = () => {
 </script>
 
 <template>
-    <NavBar color="color1F" />
-    <section class="flex h-full w-full flex-col justify-center">
+    <section class="flex h-full w-full flex-col justify-center p-10">
+        <NavBar color="color1F" />
         <div class="container m-auto mt-44">
             <!-- title -->
             <div class="w-full text-center">
