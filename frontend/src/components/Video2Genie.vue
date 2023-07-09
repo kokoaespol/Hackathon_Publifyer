@@ -1,13 +1,15 @@
-<script setup></script>
+<script setup>
+import NavBar from "./NavBar.vue";
+</script>
 
 <template>
   <section class="container w-full h-full p-10">
     <!-- Navbar -->
-
+    <NavBar />
     <!-- Title -->
-    <div class="flex w-full h-30 items-center justify-left bg-grey-lighter">
+    <div class="flex w-full h-30 items-center justify-center bg-grey-lighter">
       <label
-        class="w-2/3 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg tracking-wide hover:bg-blue hover:text-white"
+        class="w-full flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg tracking-wide"
       >
         <h1 style="font-size: 32px">
           Sube tu video y mira que tal lo hiciste...
@@ -16,12 +18,7 @@
     </div>
     <div class="flex w-full h-40 items-center justify-center bg-grey-lighter">
       <label
-        class="w-1/7 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg tracking-wide hover:bg-blue hover:text-white"
-      >
-        <p>Recomendaciones</p>
-      </label>
-      <label
-        class="w-2/3 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide border border-blue cursor-pointer hover:bg-blue hover:text-white"
+        class="w-2/3 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide border border-blue cursor-pointer"
       >
         <div>
           <p>
@@ -36,7 +33,7 @@
 
     <div class="flex w-full h-40 items-center justify-center bg-grey-lighter">
       <label
-        class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-white"
+        class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer"
       >
         <svg
           class="w-8 h-8"

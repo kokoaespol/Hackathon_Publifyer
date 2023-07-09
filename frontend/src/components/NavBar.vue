@@ -8,8 +8,8 @@
             <router-link to="/acerca">
                 <button class="mx-5">Acerca</button>
             </router-link>
-            <router-link to="/registro">
-                <button class="mx-5">Regístrate aquí</button>
+            <router-link to = "/sign-up">
+            <button class="mx-5">Regístrate aquí</button>
             </router-link>
             <router-link to="/sesion">
                 <button class="mx-5">Inicia sesión</button>
