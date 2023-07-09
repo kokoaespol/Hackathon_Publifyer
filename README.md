@@ -2,6 +2,29 @@
 
 ## API Routes
 
+### Auth
+
+Log in
+```
+POST /api/v1/login
+{
+    "email": string,
+    "password": string
+}
+```
+Response
+```
+200 Ok
+{
+  "uid": string,
+  "name": string,
+  "email": string,
+  "twitterUsername": string?
+  "instagramUsername": string?
+  "tikTokUsername": string?
+}
+```
+
 ### Users
 
 Create a new user:

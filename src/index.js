@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 
@@ -20,18 +21,36 @@ const usersController = require("./controller/usersController");
 
 const transcriptionController = require("./controller/transcriptionController");
 
+const FirebaseAuthService = require("./services/firebaseAuthService");
+const authService = new FirebaseAuthService(firebaseApp);
+const {
+  authMiddleware,
+  authController,
+} = require("./controller/authController");
+
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
+app.use(cookieParser());
+
+app.use("/api/v1/auth", authController(authService));
 
 app.use(
   "/api/v1/users",
   usersController(new FirebaseUsersService(firebaseApp)),
 );
 
-app.use("/api/v1/genies", genieController(openAIService));
+app.use(
+  "/api/v1/genies",
+  authMiddleware(authService),
+  genieController(openAIService),
+);
 
-app.use("/api/v1/transcription", transcriptionController(openAIService));
+app.use(
+  "/api/v1/transcription",
+  authMiddleware(authService),
+  transcriptionController(openAIService),
+);
 
 app.use((err, req, res, next) => {
   console.log(err.stack);
