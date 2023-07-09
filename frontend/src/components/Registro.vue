@@ -2,11 +2,19 @@
 import CustomInput from "./CustomInput.vue"
 import CustomButton from "./CustomButton.vue"
 import NavBar from "./NavBar.vue"
+import { useRouter } from "vue-router"
+
+const router = useRouter()
+
+const signUp = () => {
+    router.push("/")
+}
+
 </script>
 
 <template>
-    <NavBar />
-    <section class="flex h-full w-full flex-col justify-center">
+    <section class="flex h-full w-full flex-col justify-center p-10">
+        <NavBar color="color1F" />
         <div class="container m-auto mt-44">
             <!-- title -->
             <div class="w-full text-center">
@@ -44,7 +52,7 @@ import NavBar from "./NavBar.vue"
             <p class="text-center mt-8 font-light">Automatiza tu proceso de creacion de contenido!</p>
             <!-- button -->
             <div class="flex justify-center mt-8">
-                <CustomButton label="Regístrate" :action="(p) = {}" />
+                <CustomButton label="Regístrate" :action="signUp" />
             </div>
         </div>
     </section>
